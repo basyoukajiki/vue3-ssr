@@ -28,6 +28,7 @@ module.exports = {
   ],
   'rules': {
     'import/no-absolute-path': 'off',
+    "import/no-unresolved": "off",
     'import/extensions': [
       'error',
       'ignorePackages',
