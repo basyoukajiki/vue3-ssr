@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AtomsHoge: typeof import('./src/components/atoms/Hoge.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MoleculesFuga: typeof import('./src/components/molecules/Fuga.vue')['default']
   }
 }
 
