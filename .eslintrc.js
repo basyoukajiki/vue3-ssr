@@ -42,6 +42,7 @@ module.exports = {
     'max-len': ['off'],
     'no-param-reassign': [2, { 'props': false }],
     'no-shadow': 'off',
+    'object-curly-spacing': ['error', 'always'],
     // '@typescript-eslint/no-unused-vars': [
     //   'warn',
     //   { 'argsIgnorePattern': '^_', 'ignoreRestSiblings': true }

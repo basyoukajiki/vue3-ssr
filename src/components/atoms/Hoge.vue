@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 </script>
 <template>
-  <p>atoms hoge</p>
+  <p class="text-red-400">
+    atoms hoge
+  </p>
 </template>
 <style lang="scss" scoped>
 
