@@ -1,4 +1,5 @@
-import {defineConfig} from 'vite';
+import * as path from 'path';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -9,6 +10,7 @@ export default defineConfig({
     vue(),
     // eslint-disable-next-line new-cap
     Components({
+      dirs: ['src/components'],
       directoryAsNamespace: true,
     }),
     // eslint-disable-next-line new-cap
@@ -16,4 +18,12 @@ export default defineConfig({
       imports: ['vue', 'vue-router', 'pinia'],
     }),
   ],
+  server: {
+    port: 3000,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 });
