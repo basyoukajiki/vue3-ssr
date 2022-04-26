@@ -1,6 +1,7 @@
 import App from './app.vue';
 import '@/assets/style/main.css';
 import { createApp } from 'vue';
+import { createHead } from '@vueuse/head';
 import { isPromise } from './utils';
 import createRouter from './router/';
 import { createPinia } from 'pinia';
@@ -9,7 +10,8 @@ const router = createRouter();
 const store = createPinia();
 
 const app = createApp(App);
-app.use(router).use(store);
+const head = createHead();
+app.use(router).use(store).use(head);
 
 router.beforeResolve((to, from, next) => {
   let diffed = false;

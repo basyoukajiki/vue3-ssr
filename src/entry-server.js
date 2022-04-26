@@ -1,5 +1,7 @@
 import App from './app.vue';
 import { createSSRApp } from 'vue';
+import { createHead } from '@vueuse/head'
+import { renderHeadToString } from '@vueuse/head'
 import { isPromise } from './utils';
 import createRouter from './router/';
 import { renderToString } from '@vue/server-renderer';
@@ -36,7 +38,8 @@ export async function render(url, manifest) {
   const router = createRouter();
   const store = createPinia();
   const app = createSSRApp(App);
-  app.use(router).use(store);
+  const head = createHead()
+  app.use(router).use(store).use(head);
   router.push(url);
   try {
     await router.isReady();
@@ -68,7 +71,8 @@ export async function render(url, manifest) {
     const html = await renderToString(app, ctx);
     const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
     const state = JSON.stringify(store.state.value);
-    return [html, state, preloadLinks];
+    const { headTags } = renderHeadToString(head)
+    return [html, state, preloadLinks, headTags];
   } catch (error) {
     console.log(error);
   }

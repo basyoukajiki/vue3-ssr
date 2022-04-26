@@ -73,12 +73,13 @@ async function createServer(root = process.cwd(), isProd = isProduction) {
         render = require('./dist/server/entry-server.js').render;
       }
 
-      const [appHtml, state, links] = await render(url, manifest);
+      const [appHtml, state, links, headTags] = await render(url, manifest);
 
       const html = template
         .replace(`<!--preload-links-->`, links)
         .replace(`'<vuex-state>'`, state)
-        .replace(`<!--app-html-->`, appHtml);
+        .replace(`<!--app-html-->`, appHtml)
+        .replace(`<!--meta tags-->`, headTags);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {

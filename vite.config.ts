@@ -15,7 +15,7 @@ export default defineConfig({
     }),
     // eslint-disable-next-line new-cap
     AutoImport({
-      imports: ['vue', 'vue-router', 'pinia'],
+      imports: ['vue', 'vue-router', 'pinia', '@vueuse/head'],
     }),
   ],
   server: {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const hoge = ref('hoge');
+const title = ref('TestPage2');
 useHead({
-  title: hoge.value,
+  title: title.value,
   meta: [
     {
       name: 'description',
@@ -20,10 +20,8 @@ useHead({
 </script>
 <template>
   <h2 class="text-lg font-bold">
-    Test
+    Test2
   </h2>
-  <AtomsHoge />
-  <MoleculesFuga />
 </template>
 <style lang="scss" scoped>
 

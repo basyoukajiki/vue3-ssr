@@ -12,6 +12,11 @@ export default function() {
         name: 'index',
         component: () => import('@/pages/TestPage.vue'),
       },
+      {
+        path: '/test2',
+        name: 'test2',
+        component: () => import('@/pages/TestPage2.vue'),
+      },
     ],
   });
 }
