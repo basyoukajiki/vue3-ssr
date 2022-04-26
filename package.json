@@ -3,9 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+    "serve": "cross-env NODE_ENV=production node server",
+    "preview": "npm run build && npm run serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,6 +20,13 @@
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-replace": "^2.4.2",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.3",
+    "rollup-plugin-visualizer": "^5.6.0",
+    "@types/node": "^17.0.26",
     "@tailwindcss/typography": "^0.5.2",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
@@ -42,6 +52,8 @@
   "eslintIgnore": [
     ".eslintrc.js",
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "server.js",
+    "src/entry-server.js"
   ]
 }

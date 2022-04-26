@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 </script>
 <template>
-  <p class="text-red-400">
-    atoms hoge
-  </p>
+  <h2 class="text-lg font-bold">
+    Test
+  </h2>
+  <AtomsHoge />
+  <MoleculesFuga />
 </template>
 <style lang="scss" scoped>
 
