@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const hoge = ref('hoge');
+const title = ref('title');
 useHead({
-  title: hoge.value,
+  title: title.value,
   meta: [
     {
       name: 'description',
